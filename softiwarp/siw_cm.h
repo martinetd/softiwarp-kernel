@@ -153,11 +153,7 @@ static inline unsigned int get_tcp_mss(struct sock *sk)
 {
 	struct tcp_sock *tp = tcp_sk(sk);
 
-	if (tp->xmit_size_goal_segs)
-		return tp->xmit_size_goal_segs * tp->mss_cache;
-
-	else
-		return tp->mss_cache;
+	return tp->mss_cache;
 }
 
 #endif
