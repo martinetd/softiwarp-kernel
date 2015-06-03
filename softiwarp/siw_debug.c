@@ -58,7 +58,7 @@ static struct dentry *siw_debugfs;
 static ssize_t siw_show_qps(struct file *f, char __user *buf, size_t space,
 			    loff_t *ppos)
 {
-	struct siw_dev	*sdev = f->f_dentry->d_inode->i_private;
+	struct siw_dev	*sdev = f->f_path.dentry->d_inode->i_private;
 	struct list_head *pos, *tmp;
 	char *kbuf = NULL;
 	int len = 0, n, num_qp;
@@ -128,7 +128,7 @@ out:
 static ssize_t siw_show_ceps(struct file *f, char __user *buf, size_t space,
 			     loff_t *ppos)
 {
-	struct siw_dev	*sdev = f->f_dentry->d_inode->i_private;
+	struct siw_dev	*sdev = f->f_path.dentry->d_inode->i_private;
 	struct list_head *pos, *tmp;
 	char *kbuf = NULL;
 	int len = 0, n, num_cep;
@@ -198,7 +198,7 @@ out:
 static ssize_t siw_show_stats(struct file *f, char __user *buf, size_t space,
 			      loff_t *ppos)
 {
-	struct siw_dev	*sdev = f->f_dentry->d_inode->i_private;
+	struct siw_dev	*sdev = f->f_path.dentry->d_inode->i_private;
 	char *kbuf = NULL;
 	int len = 0;
 
